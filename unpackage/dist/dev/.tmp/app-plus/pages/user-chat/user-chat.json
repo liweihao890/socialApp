@@ -1,0 +1,17 @@
+{
+  "titleNView": {
+    "buttons": [
+      {
+        "color": "#333333",
+        "colorPressed": "#FD597C",
+        "float": "right",
+        "fontSize": "15px",
+        "fontSrc": "/static/iconfont.ttf",
+        "text": ""
+      }
+    ]
+  },
+  "usingComponents": {
+    "user-chat-list": "/components/content/user-chat/user-chat-list"
+  }
+}

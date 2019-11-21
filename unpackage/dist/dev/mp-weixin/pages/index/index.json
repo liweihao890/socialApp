@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "common-list": "/components/common/CommList",
+    "nothing": "/components/common/Nothing"
+  }
+}

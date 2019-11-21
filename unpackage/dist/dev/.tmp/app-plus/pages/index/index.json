@@ -1,0 +1,28 @@
+{
+  "titleNView": {
+    "searchInput": {
+      "align": "center",
+      "backgroundColor": "#F5F4F2",
+      "borderRadius": "4px",
+      "disabled": true,
+      "placeholder": "搜索帖子",
+      "placeholderColor": "#6D6C67"
+    },
+    "buttons": [
+      {
+        "color": "#333333",
+        "colorPressed": "#FD597C",
+        "float": "right",
+        "fontSize": "20px",
+        "fontSrc": "/static/iconfont.ttf",
+        "text": ""
+      }
+    ]
+  },
+  "usingComponents": {
+    "divider": "/components/common/Divider",
+    "loadmore": "/components/common/LoadMore",
+    "nothing": "/components/common/Nothing",
+    "common-list": "/components/common/CommList"
+  }
+}

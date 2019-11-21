@@ -1,0 +1,1 @@
+<block wx:if="{{text}}"><view data-event-opts="{{[['tap',[['onClick']]]]}}" class="{{['uni-badge data-v-72826604',inverted?'uni-badge--'+type+' uni-badge--'+size+' uni-badge--'+type+'-inverted':'uni-badge--'+type+' uni-badge--'+size]}}" style="{{(width)}}" bindtap="__e"><slot></slot>{{text}}</view></block>

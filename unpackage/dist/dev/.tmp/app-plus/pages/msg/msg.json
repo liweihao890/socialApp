@@ -1,0 +1,29 @@
+{
+  "navigationBarTitleText": "消息列表",
+  "enablePullDownRefresh": true,
+  "titleNView": {
+    "buttons": [
+      {
+        "color": "#333333",
+        "colorPressed": "#FD597C",
+        "float": "left",
+        "fontSize": "20px",
+        "fontSrc": "/static/iconfont.ttf",
+        "text": ""
+      },
+      {
+        "color": "#333333",
+        "colorPressed": "#FD597C",
+        "float": "right",
+        "fontSize": "20px",
+        "fontSrc": "/static/iconfont.ttf",
+        "text": ""
+      }
+    ]
+  },
+  "usingComponents": {
+    "nothing": "/components/common/Nothing",
+    "msg-list": "/components/content/msg/msg-list",
+    "uni-popup": "/components/uni-ui/uni-popup/uni-popup"
+  }
+}
