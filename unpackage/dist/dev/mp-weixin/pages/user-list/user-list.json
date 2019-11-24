@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "load-more": "/components/common/LoadMore",
+    "user-list": "/components/content/user-list/user-list"
+  }
+}

@@ -10,216 +10,58 @@
 				</view>
 			</block>
 		</scroll-view>
+		
 		<!-- 底部操作条 -->
-		<view class="fixed-bottom flex align-center border-top bg-white" style="height: 100rpx;">
-			<input type="text" value="" placeholder="文明发言" 
-			class=" flex-1 rounded bg-light ml-2 p-2 " 
-			v-model="content" :adjust-position="false" @confirm="submit"/>
-			<view class="iconfont icon-fabu flex justify-center align-center font-lg animated " style="width: 100rpx;" 
-			hover-class="jello text-main"
-			@click="submit" ></view>
-		</view>
+		<view style="height: 100rpx;"></view>
+		<bottom-input @submit="submit"></bottom-input>
+		
+		
 	</view>
 </template>
 
 <script>
-let list = [
-	{
-		user_id: 2,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 1,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 2,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 1,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 2,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 1,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	
-	{
-		user_id: 2,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 1,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},{
-		user_id: 2,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 1,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 2,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 1,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 2,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 1,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 2,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 1,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 2,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-	{
-		user_id: 1,
-		avatar: '/static/default.jpg',
-		username: '昵称',
-		data: '你好啊',
-		type: 'text',
-		create_time: 1574300086
-	},
-];
-
 import userChatList from '@/components/content/user-chat/user-chat-list.vue';
-
+import bottomInput from '@/components/content/bottom-input/bottom-input.vue';
+import {getChatList} from '@/network/getData.js';
 export default {
 	components: {
-		userChatList
+		userChatList,
+		bottomInput
 	},
 	data() {
 		return {
-			chatList: list,
-			content : '',
-			scrollInto: ''
+			chatList: [],
+			scrollInto: "",
 		};
 	},
-	
+	onLoad() {
+		this.chatList = getChatList()
+	},
 	onReady() {
 		this.pageToBottom()
 	},
 	methods: {
 		//发送消息	
-		submit(){
+		submit(content){
 			let obj = {
 				user_id: 2,
 				avatar: '/static/default.jpg',
 				username: '昵称',
-				data: this.content,
+				data: content,
 				type: 'text',
 				create_time: (new Date()).getTime()
 			};
-			
-			if (this.content === '') {
-				uni.showToast({
-					title:'消息不能为空',
-					icon: 'none'
-				})
-			}else{
-				this.chatList.push(obj)
-			}
+			this.chatList.push(obj);
 			//清空输入框
-			this.content = ''
+			// this.content = '';
 			//滚动到底部
-			this.pageToBottom()
+			this.pageToBottom();
 		},
 		//滚动到底部
 		pageToBottom(){
 			let lastIndex = this.chatList.length -1
-			if (lastIndex < 0) {
-				return 
-			}
-			this.scrollInto = 'chat' + lastIndex
-			
+			if (lastIndex < 0) return;
+			this.scrollInto = 'chat' + lastIndex;
 		}
 		
 	}

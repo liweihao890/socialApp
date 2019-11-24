@@ -1,5 +1,5 @@
 <template>
-	<view class="flex align-center px-2 py-2 border-bottom border-light-secondary" @click="open">
+	<view class="flex align-center px-2 py-2 border-bottom border-light-secondary animated fast fadeIn" @click="open">
 		<image :src="item.avatar" mode="" class="rounded-circle mr-2" style="height: 80rpx; width: 80rpx;"></image>
 		<view class="flex flex-column  flex-1">
 			<view class="flex align-center justify-between">

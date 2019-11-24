@@ -34,7 +34,7 @@
 
 	import topicInfo from '@/components/content/new/topic-info.vue';
 	import CommList from '@/components/common/CommList.vue';
-	import{getList} from '@/network/getData.js';
+	import{getPostList} from '@/network/getData.js';
 	import LoadMore from '@/components/common/LoadMore.vue';
 	export default {
 		components: {
@@ -76,7 +76,7 @@
 		},
 		onLoad(e) {
 			//获取最新列表数据
-			this.list1= getList()
+			this.list1= getPostList()
 			//获取默认列表数据
 			this.list2 = []
 			//获取点击的具体详情

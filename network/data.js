@@ -1,4 +1,4 @@
-export let list = [{
+export let postList = [{
 		username:"昵称",
 		userpic:"/static/default.jpg",
 		newstime:"2019-10-20 下午04:30",
@@ -43,6 +43,7 @@ export let list = [{
 		comment_count:2,
 		share_num:2
 	}];
+
 export let followList = [{
 		username:"昵称",
 		userpic:"/static/default.jpg",
@@ -88,6 +89,59 @@ export let followList = [{
 		comment_count:2,
 		share_num:2
 	}];
+
+export let userList = [
+	{
+		avatar: '/static/default.jpg',
+		username: '天行九歌',
+		sex: 1,
+		age: 24,
+		isFollow: true
+	},
+	{
+		avatar: '/static/default.jpg',
+		username: '天行九歌',
+		sex: 0,
+		age: 25,
+		isFollow: false
+	},
+	{
+		avatar: '/static/default.jpg',
+		username: '天行九歌',
+		sex: 1,
+		age: 56,
+		isFollow: true
+	},
+	{
+		avatar: '/static/default.jpg',
+		username: '天行九歌',
+		sex: 1,
+		age: 25,
+		isFollow: false
+	},
+	{
+		avatar: '/static/default.jpg',
+		username: '天行九歌',
+		sex: 0,
+		age: 24,
+		isFollow: true
+	},
+	{
+		avatar: '/static/default.jpg',
+		username: '天行九歌',
+		sex: 1,
+		age: 24,
+		isFollow: true
+	},
+	{
+		avatar: '/static/default.jpg',
+		username: '天行九歌',
+		sex: 0,
+		age: 8,
+		isFollow: false
+	},
+	
+]
 	
 export let topicList = [
 	{
@@ -200,56 +254,150 @@ export let msgList = [
 	}
 ]
 
-
-export let followFriendInfo = [
+export let chatList = [
 	{
+		user_id: 2,
 		avatar: '/static/default.jpg',
-		username: '天行九歌',
-		sex: 1,
-		age: 24,
-		isFollow: true
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
 	},
 	{
+		user_id: 1,
 		avatar: '/static/default.jpg',
-		username: '天行九歌',
-		sex: 0,
-		age: 25,
-		isFollow: false
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
 	},
 	{
+		user_id: 2,
 		avatar: '/static/default.jpg',
-		username: '天行九歌',
-		sex: 1,
-		age: 56,
-		isFollow: true
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
 	},
 	{
+		user_id: 1,
 		avatar: '/static/default.jpg',
-		username: '天行九歌',
-		sex: 1,
-		age: 25,
-		isFollow: false
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
 	},
 	{
+		user_id: 2,
 		avatar: '/static/default.jpg',
-		username: '天行九歌',
-		sex: 0,
-		age: 24,
-		isFollow: true
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
 	},
 	{
+		user_id: 1,
 		avatar: '/static/default.jpg',
-		username: '天行九歌',
-		sex: 1,
-		age: 24,
-		isFollow: true
-	},
-	{
-		avatar: '/static/default.jpg',
-		username: '天行九歌',
-		sex: 0,
-		age: 8,
-		isFollow: false
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
 	},
 	
-]
+	{
+		user_id: 2,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+	{
+		user_id: 1,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},{
+		user_id: 2,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+	{
+		user_id: 1,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+	{
+		user_id: 2,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+	{
+		user_id: 1,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+	{
+		user_id: 2,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+	{
+		user_id: 1,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+	{
+		user_id: 2,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+	{
+		user_id: 1,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+	{
+		user_id: 2,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+	{
+		user_id: 1,
+		avatar: '/static/default.jpg',
+		username: '昵称',
+		data: '你好啊',
+		type: 'text',
+		create_time: 1574300086
+	},
+];
+

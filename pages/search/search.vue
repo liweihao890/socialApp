@@ -13,7 +13,15 @@
 		<template v-else>
 			<!-- 数据列表 -->
 			<block v-for="(item,index) in searchList" :key="index">
-				<common-list :item="item" :index="index"></common-list>
+				<template v-if="type === 'post' ">
+					<common-list :item="item" :index="index"></common-list>
+				</template>
+				<template v-else-if=" type === 'topic' ">
+					<topic-list :item="item" :index="index"></topic-list>
+				</template>
+				<template v-else>
+					<user-list :item="item" :index="index"></user-list>
+				</template>
 			</block>
 		</template>
 		
@@ -22,11 +30,15 @@
 </template>
 
 <script>
-	import {list} from '@/network/data.js';
-	import CommonList from "@/components/common/CommList.vue"
+	import {getPostList,getTopicList,getUserList} from '@/network/getData.js';
+	import CommonList from "@/components/common/CommList.vue";
+	import topicList from '@/components/content/new/topic-list.vue';
+	import userList from '@/components/content/user-list/user-list.vue';
 	export default {
 		components:{
-			CommonList
+			CommonList,
+			topicList,
+			userList
 		},
 		data() {
 			return {
@@ -35,7 +47,9 @@
 				//搜索结果
 				searchList: [],
 				//搜索历史
-				historyList:['uni-app第二季商城类实战开发','uni-app第三季仿微信实战开发','实战教程','系列教程']
+				historyList:['uni-app第二季商城类实战开发','uni-app第三季仿微信实战开发','实战教程','系列教程'],
+				// 当前搜索类型
+				type: 'post'
 			}
 		},
 		//监听导航搜索框输入
@@ -49,7 +63,31 @@
 			}
 		},
 		onLoad(e) {
-			console.log(e.type);
+			if (e.type) {
+				this.type = e.type
+			}
+			switch (e.type){
+				case 'post':
+					pageTitle: '帖子';
+					break;
+				case 'topic':
+					pageTitle: '话题';
+					break;
+				case 'user':
+					pageTitle: '用户';
+					break;
+			}
+			//条件编译
+			// #ifdef APP-PLUS
+			// 修改搜索占位
+			let currentWebview = this.$mp.page.$getAppWebview();
+			let tn = currentWebview.getStyle().titleNView;
+			tn.searchInput.placeholder = '搜索' + pageTitle;
+			currentWebview.setStyle({
+				titleNView: tn
+			})
+			// #endif
+			
 		},
 		methods: {
 			//点击搜索，搜索内容
@@ -63,7 +101,17 @@
 				})
 				//请求搜索,保存搜索结果
 				setTimeout( ()=> {
-					this.searchList = list
+					switch (this.type){
+						case 'post':
+							this.searchList = getPostList()
+							break;
+						case 'topic':
+							this.searchList = getTopicList()
+							break;
+						case 'user':
+							this.searchList = getUserList()
+							break;
+					}
 					//隐藏Loading
 					uni.hideLoading()
 				} ,1000)

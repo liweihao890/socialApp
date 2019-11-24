@@ -33,13 +33,12 @@
 
 <script>
 	import LoadMore from '@/components/common/LoadMore.vue';
-	import {getFollowFriendInfo} from '@/network/getData.js';
+	import {getUserData} from '@/network/getData.js';
 	
 	import userList from '@/components/content/user-list/user-list.vue';
 	export default {
 		components:{
 			LoadMore,
-			
 			userList
 		},
 		data() {
@@ -49,9 +48,7 @@
 				scrollH: 800,
 				tabIndex: 0,
 				tabBar: [{name: ' 互关',num: 0 },{name: '关注',num: 10},{name: '粉丝',num: 20}],
-				sex: 1,
-				age: 24,
-				isFollow: true
+				
 			}
 		},
 		onNavigationBarSearchInputClicked() {
@@ -70,24 +67,13 @@
 					this.scrollH = res.windowHeight - uni.upx2px(100);
 				}
 			});
-			
-				//获取数据
-				this.followFriendInfo = getFollowFriendInfo(this.tabBar.length)
-			console.log(this.followFriendInfo);
+			//获取数据
+			this.followFriendInfo = getUserData(this.tabBar.length)
 		},
 		
 		methods: {
 			changeTab(index){
-				//当前选项就是要点击的
-				// if (this.tabIndex === index) {
-				// 	return;
-				// }
-				//将点击的index赋值给当前index,
-				
 				this.tabIndex = index;
-				
-				//滚动到对应的Index
-				// this.scrollInto = 'tab' + index;
 			},
 			onChangeTab(e){
 				

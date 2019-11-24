@@ -63,7 +63,7 @@ import CommList from '@/components/common/CommList.vue';
 import Divider from '@/components/common/Divider.vue';
 import hotCate from '@/components/content/new/hot-cate.vue';
 import topicList from '@/components/content/new/topic-list.vue';
-import {getTopicData,getFollowData} from '@/network/getData.js';
+import {getTopicList,getFollowList} from '@/network/getData.js';
 
 let hot = [{ name: '关注' }, { name: '推荐' }, { name: '体育' }, { name: '热点' }, { name: '财经' }, { name: '娱乐' }];
 
@@ -96,8 +96,8 @@ export default {
 			}
 		});
 		// 获取数据
-		this.newsList = getFollowData();
-		this.topicList = getTopicData()
+		this.newsList = getFollowList();
+		this.topicList = getTopicList()
 	},
 	methods: {
 		//打开搜索页

@@ -41,7 +41,7 @@
 <script>
 // 模拟选项卡数据
 const tab = [{ name: '关注' }, { name: '推荐' }, { name: '体育' }, { name: '热点' }, { name: '财经' }, { name: '娱乐' }, { name: '军事' }, { name: '历史' }, { name: '本地' }];
-import {getHomeData} from '@/network/getData.js';
+import {getPostData} from '@/network/getData.js';
 import CommonList from '@/components/common/CommList.vue';
 import Nothing from '@/components/common/Nothing.vue'
 export default {
@@ -68,7 +68,7 @@ export default {
 			}
 		});
 		//获取数据
-		this.newsList = getHomeData(this.tabBar.length)
+		this.newsList = getPostData(this.tabBar.length)
 	},
 	// 监听点击导航栏搜索框
 	onNavigationBarSearchInputClicked() {
@@ -81,7 +81,7 @@ export default {
 			url: '../add-input/add-input',
 			
 		});
-	}
+	},
 	methods: {
 		
 		//滑动切换内容
@@ -115,8 +115,15 @@ export default {
 			let item = this.newsList[this.tabIndex].list[e.index];
 			// 定义信息、
 			let msg = e.type === 'support' ? '点赞' : '踩';
-			//用户还没进行过操作
-			if (item.support === '') {
+			//用户已经操作过
+			if (item.support.type === e.type) {
+				return  uni.showToast({
+					title: '你已经操作过了',
+					icon: 'none'
+				});
+				
+			}//用户还没进行过操作
+			else if(item.support === '') {
 				item.support[e.type + '_count']++;
 			} else if (item.support.type === 'unsupport' && e.type === 'support') {
 				// 用户进行过操作

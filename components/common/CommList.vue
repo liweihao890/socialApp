@@ -1,5 +1,5 @@
 <template>
-	<view class="p-2">
+	<view class="p-2 animated fast fadeIn" >
 		<!-- 头像昵称 | 关注按钮 -->
 		<view class="flex align-center justify-between">
 			<view class="flex align-center">
@@ -28,8 +28,12 @@
 		</view>
 		<!-- 标题 -->
 		<view class="font-md my-1" @click="openDetail">{{ item.title }}</view>
-		<!-- 图片 -->
-		<image v-if="item.titlepic"  :src="item.titlepic" style="height: 350rpx;" class="rounded w-100" @click="openDetail"></image>
+		<!-- 帖子详情 -->
+		<slot>
+			<!-- 图片 -->
+			<image v-if="item.titlepic"  :src="item.titlepic" style="height: 350rpx;" class="rounded w-100" @click="openDetail"></image>
+		</slot>
+		
 		<!-- 图标按钮 -->
 		<view class="flex align-center">
 			<view class="flex align-center justify-center flex-1" @click="doSupport('support')">
@@ -42,11 +46,11 @@
 				:class="item.support.type === 'unsupport' ? 'support_active' : '' "></text>
 				<text>{{ item.support.unsupport_count === 0 ? '踩' :  item.support.unsupport_count }}</text>
 			</view>
-			<view class="flex align-center justify-center flex-1" @click="openDetail">
+			<view class="flex align-center justify-center flex-1" @click="doComment">
 				<text class="iconfont icon-pinglun2 mr-2"></text>
 				<text>{{ item.comment_count }}</text>
 			</view>
-			<view class="flex align-center justify-center flex-1" @click="openDetail">
+			<view class="flex align-center justify-center flex-1" @click="doShare">
 				<text class="iconfont icon-fenxiang mr-2"></text>
 				<text>{{ item.share_num }}</text>
 			</view>
@@ -58,7 +62,13 @@
 export default {
 	props: {
 		item: Object,
-		index: Number
+		index: {
+			type: Number,
+			default: -1},
+		isDetail:{
+			type: Boolean,
+			default: false
+		}
 	},
 	methods:{
 		// 关注功能
@@ -66,14 +76,38 @@ export default {
 			//点击时通知父组件
 			this.$emit('follow', this.index)
 		},
-	
+		//评论
+		doComment(){
+			//不在详情页
+			if(!this.isDetail){
+				return this.openDetail()
+			}
+			this.$emit('doComment')
+		},
+		//分享
+		doShare(){
+			//不在详情页
+			if(!this.isDetail){
+				return this.openDetail()
+			}
+			this.$emit('doShare')
+		},
 		//打开个人空间
 		openSpace(){
-			console.log('进入个人空间');
+			uni.navigateTo({
+				url: '/pages/user-space/user-space',
+				
+			});
 		},
 		//打开详情页
 		openDetail(){
-			console.log('进入详情页');
+			//处于详情页
+			if(this.isDetail){
+				return
+			}
+			uni.navigateTo({
+				url: '../../pages/detail/detail?detail=' + JSON.stringify(this.item),
+			});
 		},
 		//点赞与取消赞操作
 		doSupport(type){

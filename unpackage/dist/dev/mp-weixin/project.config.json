@@ -8,7 +8,7 @@
     "es6": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.7.0",
+  "libVersion": "2.9.2",
   "appid": "wx1c977fba5ec525bd",
   "projectname": "【第一季】社区交友",
   "condition": {

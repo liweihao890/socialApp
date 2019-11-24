@@ -63,7 +63,16 @@
 			}
 		}, {
 			"path": "pages/my/my",
-			"style": {}
+			"style": {
+				"navigationBarTitleText":"我的",
+				"app-plus":{
+					"titleNView":{
+						"buttons":[{
+							"type":"menu"
+						}]
+					}
+				}
+			}
 		}, {
 			"path": "pages/search/search",
 			"style": {
@@ -160,6 +169,77 @@
 							"fontSize": "15px",
 							"fontSrc": "/static/iconfont.ttf",
 							"text": "\ue628"
+						}]
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/detail/detail",
+            "style" : {
+				"app-plus":{
+					"titleNView":{
+						"buttons":[{
+							"type":"menu",
+							"float":"right"
+						}]
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/user-set/user-set",
+            "style" : {
+				"navigationBarTitleText":"设置"
+			}
+        }
+        ,{
+            "path" : "pages/user-password/user-password",
+            "style" : {
+				"navigationBarTitleText":"修改密码"
+			}
+        }
+        ,{
+            "path" : "pages/user-email/user-email",
+            "style" : {
+				"navigationBarTitleText":"绑定邮箱"
+			}
+        },
+		{
+			"path" : "pages/user-info/user-info",
+			"style" : {
+				"navigationBarTitleText":"修改资料"
+			}
+		}
+		
+        ,{
+            "path" : "pages/user-feedback/user-feedback",
+            "style" : {
+				"navigationBarTitleText":"意见反馈"
+			}
+        }
+        ,{
+            "path" : "pages/about/about",
+            "style" : {
+				"navigationBarTitleText":"关于社区"
+			}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+				"app-plus":{
+					"titleNView":false
+				}
+			}
+        }
+        ,{
+            "path" : "pages/user-space/user-space",
+            "style" : {
+				"navigationBarTitleText":"个人空间",
+				"app-plus":{
+					"titleNView":{
+						"buttons":[{
+							"type":"menu"
 						}]
 					}
 				}

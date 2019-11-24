@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "话题分类",
+  "usingComponents": {
+    "topic-list": "/components/content/new/topic-list"
+  }
+}

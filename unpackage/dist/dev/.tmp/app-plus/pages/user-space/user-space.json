@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "个人空间",
+  "titleNView": {
+    "buttons": [
+      {
+        "type": "menu"
+      }
+    ]
+  },
+  "usingComponents": {
+    "divider": "/components/common/Divider",
+    "loadmore": "/components/common/LoadMore",
+    "common-list": "/components/common/CommList",
+    "uni-popup": "/components/uni-ui/uni-popup/uni-popup"
+  }
+}

@@ -9,7 +9,16 @@
     "pages/topic-nav/topic-nav",
     "pages/topic-detail/topic-detail",
     "pages/user-list/user-list",
-    "pages/user-chat/user-chat"
+    "pages/user-chat/user-chat",
+    "pages/detail/detail",
+    "pages/user-set/user-set",
+    "pages/user-password/user-password",
+    "pages/user-email/user-email",
+    "pages/user-info/user-info",
+    "pages/user-feedback/user-feedback",
+    "pages/about/about",
+    "pages/login/login",
+    "pages/user-space/user-space"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -56,7 +65,7 @@
     "autoclose": false
   },
   "appname": "【第一季】社区交友",
-  "compilerVersion": "2.3.7",
+  "compilerVersion": "2.4.2",
   "usingComponents": {
     "divider": "/components/common/Divider",
     "loadmore": "/components/common/LoadMore",

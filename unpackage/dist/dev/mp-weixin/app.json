@@ -4,7 +4,13 @@
     "pages/news/news",
     "pages/msg/msg",
     "pages/my/my",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/add-input/add-input",
+    "pages/topic-nav/topic-nav",
+    "pages/topic-detail/topic-detail",
+    "pages/user-list/user-list",
+    "pages/user-chat/user-chat",
+    "pages/detail/detail"
   ],
   "subPackages": [],
   "window": {
@@ -47,6 +53,7 @@
   },
   "usingComponents": {
     "divider": "/components/common/Divider",
-    "loadmore": "/components/common/LoadMore"
+    "loadmore": "/components/common/LoadMore",
+    "nothing": "/components/common/Nothing"
   }
 }

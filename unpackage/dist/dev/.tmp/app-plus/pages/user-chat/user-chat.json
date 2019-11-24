@@ -12,6 +12,7 @@
     ]
   },
   "usingComponents": {
-    "user-chat-list": "/components/content/user-chat/user-chat-list"
+    "user-chat-list": "/components/content/user-chat/user-chat-list",
+    "bottom-input": "/components/content/bottom-input/bottom-input"
   }
 }

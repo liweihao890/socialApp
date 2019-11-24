@@ -1,0 +1,16 @@
+{
+  "titleNView": {
+    "buttons": [
+      {
+        "type": "menu",
+        "float": "right"
+      }
+    ]
+  },
+  "usingComponents": {
+    "divider": "/components/common/Divider",
+    "comm-list": "/components/common/CommList",
+    "bottom-input": "/components/content/bottom-input/bottom-input",
+    "more-share": "/components/content/more-share/more-share"
+  }
+}

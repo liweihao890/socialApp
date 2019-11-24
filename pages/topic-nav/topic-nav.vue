@@ -40,14 +40,11 @@
 <script>
 // 模拟选项卡数据
 const tab = [{ name: '关注' }, { name: '推荐' }, { name: '体育' }, { name: '热点' }, { name: '财经' }, { name: '娱乐' }, { name: '军事' }, { name: '历史' }, { name: '本地' }];
-// import {getHomeData} from '@/network/getData.js';
-import {getTopicData,getTopicList} from '@/network/getData.js';
+import {getTopicData} from '@/network/getData.js';
 import topicList from '@/components/content/new/topic-list.vue';
-import Nothing from '@/components/common/Nothing.vue'
 export default {
 	components: {
-		topicList,
-		Nothing
+		topicList
 	},
 	data() {
 		return {
@@ -67,15 +64,15 @@ export default {
 				this.scrollH = res.windowHeight - uni.upx2px(101);
 			}
 		});
+		
 		//获取数据
-		// this.newsList = getHomeData(this.tabBar.length)
-		this.newsList = getTopicList();
+		this.newsList = getTopicData();
 		console.log(this.newsList);
 	},
 	// 监听点击导航栏搜索框
 	onNavigationBarSearchInputClicked() {
 		uni.navigateTo({
-			url: '../search/search'
+			url: '../search/search?type=topic'
 		});
 	},
 	methods: {
