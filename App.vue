@@ -4,26 +4,7 @@
 			// console.log('App Launch')
 			// 检测更新
 			// 网络监听
-				//监听用户有没有联网
-				uni.getNetworkType({
-						success:(res)=>{
-							if(res.networkType === 'none'){
-								uni.showToast({
-									title: '当前处于断网状态，请连接网络',
-									icon:'none'
-								});
-							}
-						}
-				})
-			uni.onNetworkStatusChange((res) => {
-				// 用户断网
-				if(!res.isConnected){
-					uni.showToast({
-						title: '您已关闭网络，请连接网络',
-						icon:'none'
-					});
-				}
-			})
+				this.$U.onNetWork()
 			// 初始化数据
 		},
 		onShow: function() {
@@ -38,13 +19,13 @@
 <style>
 	/*每个页面公共css */
 	/* 官方css库 */
-	@import "./common/uni.css";
+	@import "./common/css/uni.css";
 	/* 自定义图标库 */
-	@import "./common/icon.css";
+	@import "./common/css/icon.css";
 	/* 动画库 */
-	@import "./common/animate.css";
+	@import "./common/css/animate.css";
 	/* 引入自定义css库 */
-	@import "./common/free.css";
+	@import "./common/css/free.css";
 	/* 引入项目公共样式 */
-	@import "./common/common.css";
+	@import "./common/css/common.css";
 </style>
